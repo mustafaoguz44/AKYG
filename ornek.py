@@ -18,10 +18,10 @@ class Users(Resource):
         fiyat=request.args['fiyat']
       
         req_data = pd.DataFrame({
-            'marka'      : ['marka'],
-            'model'       : ['model'],
+            'marka'    : ['marka'],
+            'model'    : ['model'],
             'yil'      : ['yil']
-            'fiyat'      : ['fiyat']
+            'fiyat'    : ['fiyat']
             
         })
         data = pd.read_csv('users.csv')
