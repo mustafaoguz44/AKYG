@@ -7,19 +7,22 @@ api = Api(app)
 
 class Users(Resource):
     def get(self):
-        data = pd.read_csv('kullanici.csv')
+        data = pd.read_csv('arac.csv')
         data = data.to_dict('records')
         return {'data' : data}, 200
 
     def post(self):
-        name=request.args['name']
-        age=request.args['age']
-        city=request.args['city']
+        marka=request.args['marka']
+        model=request.args['model']
+        yil=request.args['yil']        
+        fiyat=request.args['fiyat']
       
         req_data = pd.DataFrame({
-            'name'      : ['name'],
-            'age'       : ['age'],
-            'city'      : ['city']
+            'marka'      : ['marka'],
+            'model'       : ['model'],
+            'yil'      : ['yil']
+            'fiyat'      : ['fiyat']
+            
         })
         data = pd.read_csv('users.csv')
         #data = pd.concat([data, req_data], ignore_index=True)
@@ -30,7 +33,7 @@ class Users(Resource):
 
 class Name(Resource):
     def get(self,name):
-        data = pd.read_csv('kullanici.csv')
+        data = pd.read_csv('arac.csv')
         data = data.to_dict('records')
         for entry in data:
             if entry['name'] == name :
@@ -40,7 +43,7 @@ class Name(Resource):
 
 # Add URL endpoints
 api.add_resource(Users, '/users')
-api.add_resource(Name, '/<string:name>')
+api.add_resource(Marka, '/<string:marka>')
 
 
 if __name__ == '__main__':
