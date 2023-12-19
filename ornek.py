@@ -20,7 +20,7 @@ class Users(Resource):
         req_data = pd.DataFrame({
             'marka'    : ['marka'],
             'model'    : ['model'],
-            'yil'      : ['yil']
+            'yil'      : ['yil'],
             'fiyat'    : ['fiyat']
             
         })
